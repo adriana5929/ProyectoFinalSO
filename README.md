@@ -243,8 +243,10 @@ Durante las pruebas se observó:
 ## Autor
 
 Adriana Milena Noscue Dagua
+
 Sebastian Cucalon Astorquiza
-Proyecto Final – Sistemas Operativos
-Universidad del valle
+
+Proyecto Final – Sistemas Operativos - 
+Universidad del valle - 
 2026
 
