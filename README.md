@@ -235,6 +235,9 @@ Permite monitorear:
 
 <img width="921" height="246" alt="image" src="https://github.com/user-attachments/assets/d083e2de-758f-4906-a8a5-b923188a80f4" />
 
+### Ejecucion del modelo neuronal
+
+<img width="583" height="404" alt="image" src="https://github.com/user-attachments/assets/60690257-971f-441a-90e3-535a1eba292a" />
 
 ---
 
