@@ -31,7 +31,7 @@ export default function Home() {
     setTiempo(((fin - inicio) / 1000).toFixed(2));
 
     if (fail === 0) {
-      setMensaje(`🏆 ¡Éxito Absoluto! Se procesaron las ${ok} queries sin registrar fallos.`);
+      setMensaje(`🏆 ¡Éxito Absoluto! Se procesaron las ${ok} consultas sin errores.`);
     } else {
       setMensaje(`⚠️ Se detectaron ${fail} consultas fallidas.`);
     }
@@ -39,44 +39,73 @@ export default function Home() {
     setLoading(false);
   };
 
+  const porcentaje =
+    exitosas + fallidas > 0
+      ? (exitosas / (exitosas + fallidas)) * 100
+      : 0;
+
   return (
     <main
       style={{
         minHeight: '100vh',
-        background: '#08142d',
-        color: 'white',
-        padding: '30px',
+        background:
+          'linear-gradient(135deg,#0f172a,#1e293b,#334155)',
+        color: '#fff',
+        padding: '40px',
         fontFamily: 'Arial'
       }}
     >
-      <h1 style={{ textAlign: 'center' }}>
-        📊 Querys Bomber
+      <h1
+        style={{
+          textAlign: 'center',
+          fontSize: '3rem',
+          color: '#38bdf8',
+          marginBottom: '10px'
+        }}
+      >
+        🚀 Stress Testing Dashboard
       </h1>
 
-      <p style={{ textAlign: 'center' }}>
-        Operado por Adriana | Docker + PostgreSQL + Next.js
+      <p
+        style={{
+          textAlign: 'center',
+          color: '#cbd5e1',
+          marginBottom: '40px'
+        }}
+      >
+        Docker • PostgreSQL • Next.js • Monitoreo de Carga
       </p>
 
       <div
         style={{
-          maxWidth: '900px',
+          maxWidth: '1000px',
           margin: 'auto',
           background: '#172a45',
-          padding: '25px',
-          borderRadius: '12px'
+          padding: '30px',
+          borderRadius: '20px',
+          boxShadow: '0 0 30px rgba(0,0,0,0.4)',
+          border: '1px solid #334155'
         }}
       >
-        <h2 style={{ textAlign: 'center' }}>
-          Consola de Disparo Masivo
+        <h2
+          style={{
+            textAlign: 'center',
+            marginBottom: '25px'
+          }}
+        >
+          📊 Centro de Control
         </h2>
 
         <div
           style={{
-            background: '#14532d',
+            background:
+              fallidas === 0
+                ? 'linear-gradient(90deg,#16a34a,#22c55e)'
+                : 'linear-gradient(90deg,#dc2626,#ef4444)',
             padding: '15px',
-            borderRadius: '8px',
-            marginTop: '20px',
-            textAlign: 'center'
+            borderRadius: '10px',
+            textAlign: 'center',
+            fontWeight: 'bold'
           }}
         >
           {mensaje}
@@ -87,18 +116,23 @@ export default function Home() {
           disabled={loading}
           style={{
             width: '100%',
-            marginTop: '20px',
+            marginTop: '25px',
             padding: '20px',
             border: 'none',
-            borderRadius: '8px',
-            background: '#ef4444',
+            borderRadius: '12px',
+            background:
+              'linear-gradient(90deg,#ef4444,#f97316)',
             color: 'white',
-            fontWeight: 'bold',
             fontSize: '22px',
-            cursor: 'pointer'
+            fontWeight: 'bold',
+            cursor: 'pointer',
+            boxShadow:
+              '0 0 20px rgba(239,68,68,0.5)'
           }}
         >
-          {loading ? 'EJECUTANDO...' : 'ATACAR 💣'}
+          {loading
+            ? '⏳ EJECUTANDO PRUEBA...'
+            : '💣 INICIAR PRUEBA DE ESTRÉS'}
         </button>
 
         <div
@@ -106,56 +140,96 @@ export default function Home() {
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
             gap: '20px',
-            marginTop: '25px'
+            marginTop: '30px'
           }}
         >
           <div
             style={{
-              background: '#065f46',
-              padding: '20px',
-              borderRadius: '8px',
+              background:
+                'linear-gradient(135deg,#10b981,#059669)',
+              padding: '25px',
+              borderRadius: '15px',
               textAlign: 'center'
             }}
           >
-            <h3>🟢 Queries Exitosas</h3>
-            <h1>{exitosas}</h1>
+            <h3>🟢 Consultas Exitosas</h3>
+            <h1 style={{ fontSize: '3rem' }}>
+              {exitosas}
+            </h1>
           </div>
 
           <div
             style={{
-              background: '#7f1d1d',
-              padding: '20px',
-              borderRadius: '8px',
+              background:
+                'linear-gradient(135deg,#dc2626,#991b1b)',
+              padding: '25px',
+              borderRadius: '15px',
               textAlign: 'center'
             }}
           >
-            <h3>🔴 Queries Fallidas</h3>
-            <h1>{fallidas}</h1>
+            <h3>🔴 Consultas Fallidas</h3>
+            <h1 style={{ fontSize: '3rem' }}>
+              {fallidas}
+            </h1>
           </div>
         </div>
 
         <div
           style={{
-            marginTop: '30px',
+            marginTop: '35px',
             background: '#0f172a',
-            padding: '20px',
-            borderRadius: '8px'
+            padding: '25px',
+            borderRadius: '15px'
           }}
         >
-          <h2>📑 Reporte del Impacto en el Sistema</h2>
+          <h2>📑 Reporte del Sistema</h2>
 
-          <p>
-            Tiempo Total de Ejecución: <b>{tiempo} segundos</b>
+          <div
+            style={{
+              marginTop: '20px',
+              background: '#1e293b',
+              height: '15px',
+              borderRadius: '20px',
+              overflow: 'hidden'
+            }}
+          >
+            <div
+              style={{
+                width: `${porcentaje}%`,
+                height: '100%',
+                background:
+                  'linear-gradient(90deg,#22c55e,#4ade80)'
+              }}
+            />
+          </div>
+
+          <p style={{ marginTop: '25px' }}>
+            ⏱ Tiempo Total: <b>{tiempo} segundos</b>
           </p>
 
           <p>
-            Total Procesadas: <b>{exitosas + fallidas}</b>
+            📦 Total Procesadas:{' '}
+            <b>{exitosas + fallidas}</b>
           </p>
 
           <p>
-            Estado General:
-            <b style={{ marginLeft: '10px' }}>
-              {fallidas === 0 ? 'ESTABLE' : 'SOBRECARGADO'}
+            📈 Tasa de Éxito:{' '}
+            <b>{porcentaje.toFixed(2)}%</b>
+          </p>
+
+          <p>
+            ⚙ Estado General:{' '}
+            <b
+              style={{
+                color:
+                  fallidas === 0
+                    ? '#22c55e'
+                    : '#ef4444'
+              }}
+            >
+              {fallidas === 0
+                ? 'ESTABLE'
+                : 'SOBRECARGADO'}
             </b>
           </p>
         </div>
