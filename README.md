@@ -213,19 +213,28 @@ Permite monitorear:
 
 ### Interfaz Principal
 
-Agregar captura de pantalla aquí.
+<img width="921" height="356" alt="image" src="https://github.com/user-attachments/assets/2f223fd2-7f94-4589-8f17-a08256bb7cab" />
+
 
 ### Monitoreo Docker
 
-Agregar captura de docker stats.
+<img width="921" height="115" alt="image" src="https://github.com/user-attachments/assets/b822eb4a-10e8-4beb-a4fe-f439ff7bb8b2" />
+
 
 ### Monitoreo HTOP
 
-Agregar captura de htop.
+<img width="921" height="465" alt="image" src="https://github.com/user-attachments/assets/95b2f689-6570-4c1f-9b53-0e93ea024ee1" />
 
-### Monitoreo VMSTAT
 
-Agregar captura de vmstat.
+
+### Ejecucion de la prueba 
+
+<img width="921" height="497" alt="image" src="https://github.com/user-attachments/assets/3e432f00-615f-43a8-8ef5-40e9a50bf042" />
+
+### Resultado de la prueba de carga
+
+<img width="921" height="246" alt="image" src="https://github.com/user-attachments/assets/d083e2de-758f-4906-a8a5-b923188a80f4" />
+
 
 ---
 
